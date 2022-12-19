@@ -37,7 +37,6 @@ class Perfect < ApplicationRecord
 
   def set_params
     @array = input
-    p @array
     self.cuts = encode_output
   end
 
