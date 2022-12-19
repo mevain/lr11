@@ -1,0 +1,29 @@
+<h1>Ответ:</h1>
+<div> 
+    <table id = "result" border = 1>
+        <tr>
+            <th width = 100> Длина </th>
+            <th width = 300> Отрезок </th>
+        </tr>
+        <% if @arr == 'Нет таких отрезков' then %> <tr> <td align="center" colspan="2"> Нет отрезков </td> </tr> 
+        <% else %>
+        <%= @maxarr = [] %>
+        <%  @arr.each do |i| %>
+            <tr>
+                <td> <%= i.size %> </td>
+                <%= if i.size > @maxarr.size then %>
+                <%= @maxarr = i%>
+                <%= end %>
+                <td> <%= i %> </td>
+            </tr>
+        <% end %>
+        <tr> <th colspan="2"> Самый длинный отрезок </th> </tr>
+        <tr>
+            <td> <%= maxarr %> </td>
+            <td> <%= @arr.max %> </td>
+        </tr>
+        <% end %>
+    </table>
+    <p> <%= @msg %> </p>
+    <%= button_to 'Ввести новый массив', root_path, method: :get %>
+</div>

@@ -1,0 +1,10 @@
+<h1>Введите массив</h1>
+
+
+<%= form_with url: "calc/output", method: :get do |form| %>
+    <%= form.label :array, "Массив:" %>
+    <%= form.text_field :array %>
+    <%= form.submit "Submit" %>
+  <% end %>
+  <%= flash[:notice] %>
+  
