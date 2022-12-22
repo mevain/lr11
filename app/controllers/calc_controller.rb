@@ -14,6 +14,18 @@ class CalcController < ApplicationController
     end
   end
 
+  def json
+    @db = Perfect.all
+    render json: @db
+  end
+
+  def xml
+    perfects = Perfect.all.map do |result|
+      { input: result.input, cuts: result.cuts}
+    end
+    render xml: perfects
+  end
+
   private
 
   def set_params
@@ -26,4 +38,6 @@ class CalcController < ApplicationController
     return if @arr.valid?
     redirect_to root_path, notice: @arr.errors.objects.map(&:message).first
   end
+
+  
 end

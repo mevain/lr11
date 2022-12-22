@@ -6,5 +6,7 @@
     <%= form.text_field :array %>
     <%= form.submit "Submit" %>
   <% end %>
+  <%= link_to "Показать БД в JSON", calc_json_path %><br>
+  <%= link_to "Показать БД в XML", calc_xml_path %><br>
   <%= flash[:notice] %>
   

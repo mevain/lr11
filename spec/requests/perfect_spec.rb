@@ -44,5 +44,14 @@ RSpec.describe "Perfects", type: :request do
         expect(response).to redirect_to(root_path)
       end
     end
+    it "returns different values" do
+      get "/calc/output", params: { array: "1 2 6 28 5 496 13"}
+      first = :cuts
+      get "/calc/output", params: { array: "1 2 6 28 5 496 12"}
+      second = :cuts
+      expect(assigns(first)).not_to be eq(second)
+    end
   end
+
+  
 end

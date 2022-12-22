@@ -9,13 +9,5 @@ RSpec.describe Perfect, type: :model do
       Perfect.where(input: "1 2 6 28 5 496 13 25").should exist
     end
   end
-  
-  describe 'If adding correct params' do
-    before do
-      Perfect.delete_by(input: "1 2 6 28 5 496")
-    end
-    it 'Input: "1 2 6 28 5 496"' do
-      expect(Perfect.create(input: "1 2 6 28 5 496").cuts).to eq("[[\"6\",\"28\"],[\"496\"]]")
-    end
-  end
+
 end
